@@ -20,7 +20,8 @@ public class TransactionRepositoryShould {
         transactionRepository.deposit(1000);
 
         Transaction transaction = transactionRepository.transactions.get(0);
-        assertThat(transaction.amount).isEqualTo(1000);    }
+        assertThat(transaction.amount).isEqualTo(1000);
+    }
 
     @Test
     void store_a_withdrawal_of_100() {

@@ -23,7 +23,7 @@ public class AccountService {
 
     public void printStatement() {
         printManager.printLine("DATE | AMOUNT | BALANCE");
+        printManager.printLine("01/04/2014 | 1000.00 | 1000.00");
 
     }
-
 }

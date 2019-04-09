@@ -42,4 +42,14 @@ public class AccountServiceShould {
 
         verify(printManager).printLine("DATE | AMOUNT | BALANCE");
     }
+
+    @Test
+    void print_header_and_the_first_transaction() {
+        account.deposit(1000);
+
+        account.printStatement();
+
+        verify(printManager, times(1)).printLine("DATE | AMOUNT | BALANCE");
+        verify(printManager, times(1)).printLine("01/04/2014 | 1000.00 | 1000.00");
+    }
 }
