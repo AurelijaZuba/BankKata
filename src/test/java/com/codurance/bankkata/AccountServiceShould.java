@@ -12,9 +12,12 @@ public class AccountServiceShould {
 
     @Mock
     TransactionRepository transactionRepository;
+    @Mock
+    PrintManager printManager;
 
     @BeforeEach
     void setUp() {
+        printManager = mock(PrintManager.class);
         transactionRepository = mock(TransactionRepository.class);
         account = new AccountService(transactionRepository);
     }
@@ -31,5 +34,12 @@ public class AccountServiceShould {
         account.withdraw(100);
 
         verify(transactionRepository).withdraw(100);
+    }
+
+    @Test
+    void print_transaction_header() {
+        account.printStatement();
+
+        verify(printManager).printLine("DATE | AMOUNT | BALANCE");
     }
 }
