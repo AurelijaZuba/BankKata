@@ -13,7 +13,6 @@ public class TransactionRepository {
     }
 
     public void withdraw(int amount) {
-        throw new UnsupportedOperationException();
-
+        transactions.add(-Math.abs(amount));
     }
 }

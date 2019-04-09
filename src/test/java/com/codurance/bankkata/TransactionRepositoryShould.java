@@ -26,7 +26,7 @@ public class TransactionRepositoryShould {
     void store_a_withdrawal_of_100() {
         transactionRepository.withdraw(100);
 
-        assertThat(transactionRepository.transactions.get(0)).isEqualTo(100);
+        assertThat(transactionRepository.transactions.get(0)).isEqualTo(-100);
     }
 
 
