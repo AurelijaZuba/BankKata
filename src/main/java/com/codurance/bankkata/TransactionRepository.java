@@ -1,14 +1,15 @@
 package com.codurance.bankkata;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class TransactionRepository {
 
-    public List<Integer> amount;
+    public List<Integer> transactions = new ArrayList<>();
+
 
     public void deposit(int amount) {
-        throw new UnsupportedOperationException();
-
+        transactions.add(amount);
     }
 
     public void withdraw(int amount) {
