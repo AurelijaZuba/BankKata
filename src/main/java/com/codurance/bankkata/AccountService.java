@@ -9,11 +9,11 @@ public class AccountService {
     }
 
     public void deposit(int amount) {
-        transactionRepository.addDeposit(amount);
+        transactionRepository.deposit(amount);
     }
 
     public void withdraw(int amount) {
-        throw new UnsupportedOperationException();
+        transactionRepository.withdraw(amount);
 
     }
 
