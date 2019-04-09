@@ -16,6 +16,6 @@ public class TransactionRepository {
     }
 
     private void addTransaction(int amount) {
-        transactions.add(new Transaction("10/04/2014", amount));
+        transactions.add(new Transaction("01/04/2014", amount));
     }
 }

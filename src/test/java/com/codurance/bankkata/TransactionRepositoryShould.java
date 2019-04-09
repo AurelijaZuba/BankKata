@@ -35,7 +35,6 @@ public class TransactionRepositoryShould {
         transactionRepository.deposit(1000);
 
         Transaction transaction = transactionRepository.transactions.get(0);
-        assertThat(transaction.date).isEqualTo("10/04/2014");
+        assertThat(transaction.date).isEqualTo("01/04/2014");
     }
-
 }
