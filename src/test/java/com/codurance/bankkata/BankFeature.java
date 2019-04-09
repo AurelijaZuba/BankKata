@@ -2,6 +2,7 @@ package com.codurance.bankkata;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mock;
 
 import static org.mockito.Mockito.verify;
 
@@ -9,9 +10,12 @@ public class BankFeature {
     private AccountService account;
     private PrintManager printService;
 
+    @Mock
+    TransactionRepository transactionRepository;
+
     @BeforeEach
     void setUp() {
-        account = new AccountService();
+        account = new AccountService(transactionRepository);
         printService = new PrintManager();
     }
 

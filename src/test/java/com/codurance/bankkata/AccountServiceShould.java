@@ -4,18 +4,19 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 
-import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.*;
 
 public class AccountServiceShould {
+
+    private AccountService account;
 
     @Mock
     TransactionRepository transactionRepository;
 
-    private AccountService account;
-
     @BeforeEach
     void setUp() {
-        account = new AccountService();
+        transactionRepository = mock(TransactionRepository.class);
+        account = new AccountService(transactionRepository);
     }
 
     @Test
