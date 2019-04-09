@@ -39,7 +39,7 @@ When they print their bank statements
 
 Then they should see
 
->	DATE		| AMOUNT  | BALANCE
+>	DATE | AMOUNT | BALANCE
 
 >	10/04/2014	| 500.00  | 1400.00
 

@@ -46,4 +46,16 @@ public class TransactionRepositoryShould {
         Transaction transaction = transactionRepository.transactions.get(0);
         assertThat(transaction.balance).isEqualTo(1000);
     }
+
+    @Test
+    void store_multiple_specific_transaction_dates() {
+        transactionRepository.deposit(1000);
+        transactionRepository.withdraw(100);
+
+        var transactions = transactionRepository.transactions;
+        assertThat(transactions.size()).isEqualTo(2);
+        assertThat(transactions.get(0).date).isEqualTo("01/04/2014");
+        assertThat(transactions.get(1).date).isEqualTo("02/04/2014");
+
+    }
 }
