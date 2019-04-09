@@ -20,7 +20,6 @@ public class TransactionRepositoryShould {
         when(clock.today()).thenReturn("01/04/2014");
 
         transactionRepository = new TransactionRepository(clock);
-
     }
 
     @Test
@@ -75,6 +74,5 @@ public class TransactionRepositoryShould {
         var transactions = transactionRepository.transactions;
         assertThat(transactions.get(0).balance).isEqualTo(1000);
         assertThat(transactions.get(1).balance).isEqualTo(900);
-
     }
 }

@@ -22,6 +22,10 @@ public class TransactionRepository {
     }
 
     private void addTransaction(int amount) {
-        transactions.add(new Transaction(clock.today(), amount, 1000));
+        var balance = transactions.stream()
+                .mapToInt((transaction) -> transaction.amount)
+                .sum() + amount;
+
+        transactions.add(new Transaction(clock.today(), amount, balance));
     }
 }
