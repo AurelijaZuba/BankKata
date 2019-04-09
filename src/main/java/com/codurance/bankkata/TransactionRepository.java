@@ -28,4 +28,8 @@ public class TransactionRepository {
 
         transactions.add(new Transaction(clock.today(), amount, balance));
     }
+
+    public Iterable<Transaction> getTransactionsInReverse() {
+        return null;
+    }
 }
