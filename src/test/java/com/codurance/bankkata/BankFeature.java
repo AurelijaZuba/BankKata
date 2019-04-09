@@ -4,8 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.*;
 
 public class BankFeature {
     private AccountService account;
@@ -14,9 +13,12 @@ public class BankFeature {
     TransactionRepository transactionRepository;
     @Mock
     PrintManager printManager;
+    @Mock
+    Clock clock;
 
     @BeforeEach
     void setUp() {
+        clock = mock(Clock.class);
         transactionRepository = mock(TransactionRepository.class);
         printManager = mock(PrintManager.class);
         account = new AccountService(transactionRepository, printManager);
@@ -24,8 +26,11 @@ public class BankFeature {
 
     @Test
     void store_and_print_transactions() {
+        when(clock.today()).thenReturn("01/04/2014");
         account.deposit(1000);
+        when(clock.today()).thenReturn("02/04/2014");
         account.withdraw(100);
+        when(clock.today()).thenReturn("10/04/2014");
         account.deposit(500);
 
         account.printStatement();
