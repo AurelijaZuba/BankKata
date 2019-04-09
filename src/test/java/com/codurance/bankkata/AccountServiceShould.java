@@ -20,9 +20,18 @@ public class AccountServiceShould {
     }
 
     @Test
-    void make_A_deposit_of_1000() {
+    void make_a_deposit_of_1000() {
         account.deposit(1000);
 
         verify(transactionRepository).addDeposit(1000);
     }
+
+
+    @Test
+    void make_a_withdrawal_of_100() {
+        account.withdraw(100);
+
+        verify(transactionRepository).addWithdraw(100);
+    }
+
 }

@@ -6,4 +6,9 @@ public class TransactionRepository {
         throw new UnsupportedOperationException();
 
     }
+
+    public void addWithdraw(int amount) {
+        throw new UnsupportedOperationException();
+
+    }
 }
