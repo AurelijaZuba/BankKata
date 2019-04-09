@@ -1,5 +1,6 @@
 package com.codurance.bankkata;
 
+
 public class AccountService {
 
     private TransactionRepository transactionRepository;
@@ -24,4 +25,5 @@ public class AccountService {
         printManager.printLine("DATE | AMOUNT | BALANCE");
 
     }
+
 }
