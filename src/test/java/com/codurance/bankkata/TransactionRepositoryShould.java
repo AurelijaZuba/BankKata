@@ -2,16 +2,24 @@ package com.codurance.bankkata;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mock;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 public class TransactionRepositoryShould {
 
     private TransactionRepository transactionRepository;
+    @Mock
+    Clock clock;
 
     @BeforeEach
     void setUp() {
-        transactionRepository = new TransactionRepository();
+        clock = mock(Clock.class);
+        when(clock.today()).thenReturn("01/04/2014");
+
+        transactionRepository = new TransactionRepository(clock);
 
     }
 
@@ -50,12 +58,12 @@ public class TransactionRepositoryShould {
     @Test
     void store_multiple_specific_transaction_dates() {
         transactionRepository.deposit(1000);
+        when(clock.today()).thenReturn("02/04/2014");
         transactionRepository.withdraw(100);
 
         var transactions = transactionRepository.transactions;
         assertThat(transactions.size()).isEqualTo(2);
         assertThat(transactions.get(0).date).isEqualTo("01/04/2014");
         assertThat(transactions.get(1).date).isEqualTo("02/04/2014");
-
     }
 }
