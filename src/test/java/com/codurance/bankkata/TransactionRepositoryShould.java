@@ -29,5 +29,4 @@ public class TransactionRepositoryShould {
         assertThat(transactionRepository.transactions.get(0)).isEqualTo(-100);
     }
 
-
 }
