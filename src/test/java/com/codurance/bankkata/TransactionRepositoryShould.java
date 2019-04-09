@@ -21,4 +21,13 @@ public class TransactionRepositoryShould {
 
         assertThat(transactionRepository.transactions.get(0)).isEqualTo(1000);
     }
+
+    @Test
+    void store_a_withdrawal_of_100() {
+        transactionRepository.withdraw(100);
+
+        assertThat(transactionRepository.transactions.get(0)).isEqualTo(100);
+    }
+
+
 }
