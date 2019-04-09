@@ -52,4 +52,17 @@ public class AccountServiceShould {
         verify(printManager, times(1)).printLine("DATE | AMOUNT | BALANCE");
         verify(printManager, times(1)).printLine("01/04/2014 | 1000.00 | 1000.00");
     }
+
+    @Test
+    void print_multiple_transactions_in_reverse() {
+        account.deposit(1000);
+        account.withdraw(100);
+
+        account.printStatement();
+
+        verify(printManager, times(1)).printLine("DATE | AMOUNT | BALANCE");
+        verify(printManager, times(1)).printLine("02/04/2014 | -100.00 | 900.00");
+        verify(printManager, times(1)).printLine("01/04/2014 | 1000.00 | 1000.00");
+
+    }
 }
