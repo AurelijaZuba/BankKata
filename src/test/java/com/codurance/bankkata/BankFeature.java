@@ -12,10 +12,12 @@ public class BankFeature {
 
     @Mock
     TransactionRepository transactionRepository;
+    @Mock
+    PrintManager printManager;
 
     @BeforeEach
     void setUp() {
-        account = new AccountService(transactionRepository);
+        account = new AccountService(transactionRepository, printManager);
         printService = new PrintManager();
     }
 

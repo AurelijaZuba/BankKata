@@ -19,7 +19,7 @@ public class AccountServiceShould {
     void setUp() {
         printManager = mock(PrintManager.class);
         transactionRepository = mock(TransactionRepository.class);
-        account = new AccountService(transactionRepository);
+        account = new AccountService(transactionRepository, printManager);
     }
 
     @Test
