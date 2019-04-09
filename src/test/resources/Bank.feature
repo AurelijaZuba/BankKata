@@ -4,9 +4,9 @@ Start with a class following this structure
 
 ```java
 public class Account {
-public void Deposit(int amount);
-public void Withdraw(int amount);
-public void PrintStatement(int amount);
+public void deposit(int amount);
+public void withdraw(int amount);
+public void printStatement();
 }
 ```
 
