@@ -37,4 +37,12 @@ public class TransactionRepositoryShould {
         Transaction transaction = transactionRepository.transactions.get(0);
         assertThat(transaction.date).isEqualTo("01/04/2014");
     }
+
+    @Test
+    void store_current_balance() {
+        transactionRepository.deposit(1000);
+
+        Transaction transaction = transactionRepository.transactions.get(0);
+        assertThat(transaction.balance).isEqualTo(1000);
+    }
 }
