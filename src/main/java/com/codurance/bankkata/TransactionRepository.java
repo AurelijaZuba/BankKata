@@ -8,11 +8,14 @@ public class TransactionRepository {
     public List<Transaction> transactions = new ArrayList<>();
 
     public void deposit(int amount) {
-        transactions.add(new Transaction("10/04/2014", amount));
+        addTransaction(amount);
     }
 
     public void withdraw(int amount) {
-        transactions.add(new Transaction("02/04/2014", -Math.abs(amount)));
+        addTransaction(-Math.abs(amount));
     }
 
+    private void addTransaction(int amount) {
+        transactions.add(new Transaction("10/04/2014", amount));
+    }
 }

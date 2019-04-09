@@ -30,7 +30,6 @@ public class TransactionRepositoryShould {
         assertThat(transaction.amount).isEqualTo(-100);
     }
 
-
     @Test
     void generate_transaction_date() {
         transactionRepository.deposit(1000);
