@@ -8,9 +8,8 @@ import static org.mockito.Mockito.*;
 
 public class BankFeature {
     private AccountService account;
+    private TransactionRepository transactionRepository;
 
-    @Mock
-    TransactionRepository transactionRepository;
     @Mock
     PrintManager printManager;
     @Mock
@@ -19,7 +18,7 @@ public class BankFeature {
     @BeforeEach
     void setUp() {
         clock = mock(Clock.class);
-        transactionRepository = mock(TransactionRepository.class);
+        transactionRepository = new TransactionRepository(clock);
         printManager = mock(PrintManager.class);
         account = new AccountService(transactionRepository, printManager);
     }
@@ -35,9 +34,13 @@ public class BankFeature {
 
         account.printStatement();
 
+        verify(printManager, times(1)).printLine("DATE | AMOUNT | BALANCE");
         verify(printManager).printLine("DATE | AMOUNT | BALANCE");
-        verify(printManager).printLine("10/04/2014| 500.00  | 1400.00");
-        verify(printManager).printLine("02/04/2014| -100.00 | 900.00");
-        verify(printManager).printLine("01/04/2014| 1000.00 | 1000.00");
+        verify(printManager, times(1)).printLine("10/04/2014 | 500.00 | 1400.00");
+        verify(printManager).printLine("10/04/2014 | 500.00 | 1400.00");
+        verify(printManager, times(1)).printLine("02/04/2014 | -100.00 | 900.00");
+        verify(printManager).printLine("02/04/2014 | -100.00 | 900.00");
+        verify(printManager, times(1)).printLine("01/04/2014 | 1000.00 | 1000.00");
+        verify(printManager).printLine("01/04/2014 | 1000.00 | 1000.00");
     }
 }

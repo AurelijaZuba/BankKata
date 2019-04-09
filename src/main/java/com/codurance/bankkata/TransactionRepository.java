@@ -30,6 +30,11 @@ public class TransactionRepository {
     }
 
     public Iterable<Transaction> getTransactionsInReverse() {
-        return null;
+        List<Transaction> result = new ArrayList<>();
+        for (var i = transactions.size() - 1; i >= 0; i--) {
+            var transaction = transactions.get(i);
+            result.add(transaction);
+        }
+        return result;
     }
 }
