@@ -30,7 +30,7 @@ public class BankFeature {
 
         account.printStatement();
 
-        verify(printManager).printLine("date || amount || balance");
+        verify(printManager).printLine("DATE | AMOUNT | BALANCE");
         verify(printManager).printLine("10/04/2014| 500.00  | 1400.00");
         verify(printManager).printLine("02/04/2014| -100.00 | 900.00");
         verify(printManager).printLine("01/04/2014| 1000.00 | 1000.00");
