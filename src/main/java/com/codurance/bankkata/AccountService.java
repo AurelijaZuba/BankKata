@@ -1,6 +1,8 @@
 package com.codurance.bankkata;
 
 public class AccountService {
+    public int amount;
+
     public void deposit(int amount) {
 
     }
