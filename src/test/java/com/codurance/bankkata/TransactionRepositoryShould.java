@@ -66,4 +66,15 @@ public class TransactionRepositoryShould {
         assertThat(transactions.get(0).date).isEqualTo("01/04/2014");
         assertThat(transactions.get(1).date).isEqualTo("02/04/2014");
     }
+
+    @Test
+    void calculate_balance_for_deposit_and_withdrawal() {
+        transactionRepository.deposit(1000);
+        transactionRepository.withdraw(100);
+
+        var transactions = transactionRepository.transactions;
+        assertThat(transactions.get(0).balance).isEqualTo(1000);
+        assertThat(transactions.get(1).balance).isEqualTo(900);
+
+    }
 }
